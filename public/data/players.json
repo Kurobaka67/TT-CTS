@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "prenom": "Jonathan",
+        "nom": "Grill",
+        "age": "22",
+        "competition": true,
+        "agr": "500",
+        "lgett": "90"
+        
+    },
+    {
+        "id": 2,
+        "prenom": "Georgette",
+        "nom": "Lejeune",
+        "age": "64",
+        "competition": true,
+        "agr": null,
+        "lgett": null
+    }
+]

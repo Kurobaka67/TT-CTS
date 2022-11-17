@@ -8,19 +8,19 @@ export default {
         return {
             menu: [
                 {
-                    link: '/#/',
+                    link: window.location.origin+'/#/',
                     name: 'Accueil',
                     tooltip: 'Accueil',
                     icon: 'bx bxs-home'
                 },
                 {
-                    link: '/#/list',
+                    link: window.location.origin+'/#/list',
                     name: 'Compétitions',
                     tooltip: 'Compétitions',
                     icon: 'bx bxs-trophy'
                 },
                 {
-                    link: '/#/player',
+                    link: window.location.origin+'/#/player',
                     name: 'Joueurs',
                     tooltip: 'Joueurs',
                     icon: 'bx bxs-group'

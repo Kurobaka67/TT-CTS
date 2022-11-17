@@ -57,7 +57,6 @@ export default {
     mounted() {
         this.service.getPlayers().then(data => {
             this.players = data;
-            console.log(data);
             });
     },
 }

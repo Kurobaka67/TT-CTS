@@ -1,5 +1,5 @@
 <template>
-	<div class="app" :class="theme" @click="onWrapperClick">
+	<div class="app" @click="onWrapperClick">
         <MenuBar @changeTheme="changeTheme"/>
         
         <div :class="theme" class="main">

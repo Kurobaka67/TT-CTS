@@ -1,51 +1,43 @@
+:root {
+    --background-color: #111;
+    --text-color: #ededed;
+    --primary-color: #404258;
+    --secondary-color: #474E68;
+}
+
+.main-dark {
+    --background-color: #111;
+    --text-color: #ededed;
+    --primary-color: #404258;
+    --secondary-color: #474E68;
+}
+
+.main-light {
+    --background-color: #ededed;
+    --text-color: #111;
+    --primary-color: #7FBCD2;
+    --secondary-color: #A5F1E9;
+}
+
 .main-layout {
     margin-top: 2em;
     margin-bottom: 2em;
     text-align: center;
+    color: var(--text-color);
+    background-color: var(--primary-color);
 }
 
 .imageCard {
     height: 18rem;
 }
 
-.main-dark {
-    background-image: linear-gradient(#1a1e36, #2d3562);
+.main {
+    background-color: var(--background-color);
+    color: var(--text-color)
 }
 
-.main-light {
-    background-image: linear-gradient(#6dc3f8, #c3e6fc);
-}
-
-.darkest-color {
-    background-color: #0e1020;
-    color: white;
-}
-
-.dark-color {
-    background-color: #2d3562;
-    color: white;
-}
-
-.lightest-color {
-    background-color: #2ca6f3;
-    color: black;
-}
-
-.light-color {
-    background-color: #6dc3f8;
-    color: black;
-}
-
-.button-theme {
-    margin-left: 2rem;
-}
-
-.dark-text {
-    color: black;
-}
-
-.light-text {
-    color: white;
+aside {
+    background-color: var(--primary-color);
 }
 
 .title {
@@ -53,20 +45,22 @@
     font-weight: 700;
 }
 
-.button-dark {
-    background-color: #0c0c0d;
-}
-
-.button-light {
-    background-color: #848493;
-    color: black;
+.top-bar{
+    margin-left: -2rem;
+    margin-top: -2rem;
+    width: 120%;
+    background-color: var(--secondary-color);
 }
 
 .card-content{
     padding-left: 30px;
 }
 
+.fc {
+    margin-top: 1rem;
+}
+
 .fc.fc-theme-standard .fc-view-harness .fc-view {
-    background-color: #6dc3f8;
-    color: black;
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }

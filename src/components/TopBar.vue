@@ -1,5 +1,5 @@
 <template>
-    <div :class="[theme=='main-dark'?'dark-color':'lightest-color']">
+    <div class="top-bar">
         <Dropdown v-model="selectedLigue" :options="ligue" :editable="true" @change="changeLigue"/>
     </div>
 </template>

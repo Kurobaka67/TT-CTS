@@ -1,24 +1,19 @@
 <template>
-	<div :class="containerClass" @click="onWrapperClick">
-        <MenuBar />
+	<div class="app" :class="theme" @click="onWrapperClick">
+        <MenuBar @changeTheme="changeTheme"/>
         
-        <div :class="theme">
-            <div class="button-theme">
-                <ButtonTheme @changeTheme="changeTheme" />
-            </div>
-            <router-view :theme="theme"/>
+        <div :class="theme" class="main">
+            <router-view />
         </div>
 	</div>
 </template>
 
 <script>
 import MenuBar from './components/MenuBar.vue';
-import ButtonTheme from './components/ButtonTheme.vue';
 
 export default {
     components: {
         'MenuBar': MenuBar,
-        'ButtonTheme': ButtonTheme
     },
     data() {
         return {
@@ -45,4 +40,17 @@ export default {
 
 <style lang="scss">
 @import './App.scss';
+
+.app {
+    display: flex;
+
+    .main {
+        flex: 1 1 0;
+        padding: 2rem;
+
+        @media (max-width: 768px) {
+            padding-left: 6rem;
+        }
+    }
+}
 </style>

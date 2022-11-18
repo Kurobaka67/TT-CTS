@@ -1,7 +1,7 @@
 <template>
-    <TopBar @ligueSelecte="ligueSelecte" :theme='theme'/>
+    <TopBar @ligueSelecte="ligueSelecte"/>
     <div class="flex justify-content-center" >
-        <div class="flex flex-column w-11 main-layout" :class="[theme=='main-dark'?'light-text':'dark-text']">
+        <div class="w-11">
             <FullCalendar :options="calendarOptions"/>
         </div>
     </div>

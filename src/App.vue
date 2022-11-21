@@ -3,7 +3,7 @@
         <MenuBar @changeTheme="changeTheme"/>
         
         <div :class="theme" class="main">
-            <router-view />
+            <router-view :theme="theme"/>
         </div>
 	</div>
 </template>
@@ -49,8 +49,14 @@ export default {
         padding: 2rem;
 
         @media (max-width: 768px) {
-            padding-left: 6rem;
+            padding-left: 5rem;
+            padding-right: 1rem;
+            padding-top: 0;
         }
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
     }
 }
 </style>

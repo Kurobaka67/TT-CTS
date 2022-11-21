@@ -1,6 +1,6 @@
 <template>
     <div class="flex justify-content-center">
-        <Card class="w-9 main-layout">
+        <Card class="w-full lg:w-9 main-layout">
             <template #header>
                 <img src="../../public/images/img1.png" alt="" >
             </template>

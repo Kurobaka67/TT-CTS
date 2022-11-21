@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-content-center">
+    <div class="flex justify-content-center home-page">
         <Card class="w-full lg:w-9 main-layout">
             <template #header>
                 <img src="../../public/images/img1.png" alt="" >

@@ -1,6 +1,6 @@
 <template>
-    <div class="h-screen">
-        <div class="card">
+    <div class="flex justify-content-center h-screen">
+        <div class="card w-full lg:w-11">
         <DataView :value="players" :layout="layout" :paginator="true" :rows="9" :sortOrder="sortOrder" :sortField="sortField">
 			<template #header>
                 <div class="grid grid-nogutter">

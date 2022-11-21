@@ -51,12 +51,8 @@ export default {
         @media (max-width: 768px) {
             padding-left: 5rem;
             padding-right: 1rem;
-            padding-top: 0;
+            padding-top: 1;
         }
-    }
-
-    @media (max-width: 768px) {
-        flex-direction: column;
     }
 }
 </style>

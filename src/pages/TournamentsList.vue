@@ -1,7 +1,7 @@
 <template>
     <TopBar @ligueSelecte="ligueSelecte"/>
-    <div class="flex justify-content-center" >
-        <div class="w-11">
+    <div class="flex justify-content-center h-screen" >
+        <div class="w-full lg:w-11">
             <FullCalendar :options="calendarOptions"/>
         </div>
     </div>

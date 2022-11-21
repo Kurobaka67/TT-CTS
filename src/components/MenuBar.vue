@@ -1,7 +1,7 @@
 <template>
-    <aside :class="[isExpanded?'is-expanded':'']">
+    <aside :class="[isExpanded?'is-expanded':'' || textTheme=='Clair'?'menu-light':'menu-dark']">
         <div class="logo">
-            <img src="../../public/images/logocscts-light.png" alt="logocscts">
+            <img src="../../public/images/logocscts.png" alt="logocscts">
         </div>
 
         <div class="menu-toggle-wrap">
@@ -45,7 +45,7 @@ export default {
         return {
             isExpanded: ref(false),
             buttonIcon: 'pi pi-sun',
-            textTheme: 'Clair'
+            textTheme: 'Clair',
         }
     },
     methods: {
@@ -62,6 +62,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.menu-dark {
+    --background-menu-color:#404258;
+    --text-menu-color:#ededed;
+    --primary-menu-color:#22313f;
+    --secondary-menu-color:#a4fbe3;
+}
+
+.menu-light {
+    --background-menu-color:#404258;
+    --text-menu-color:#ededed;
+    --primary-menu-color:#22313f;
+    --secondary-menu-color:#a4fbe3;
+}
+
 aside {
     display: flex;
     flex-direction: column;
@@ -70,7 +84,8 @@ aside {
     padding: 1rem;
     overflow: hidden;
 
-    color: white;
+    background-color: var(--background-menu-color);
+    color: var(--text-menu-color);
 
     transition: 0.2s ease-out;
 
@@ -83,10 +98,11 @@ aside {
 
     .logo {
         margin-bottom: 1rem;
+        background-color: white;
+        border-radius: 50%;
 
         img {
             width: 2rem;
-            color: white;
         }
     }
 
@@ -146,14 +162,14 @@ aside {
             }
 
             &:hover, &.router-link-exact-active {
-                background-color: #22313f;
+                background-color: var(--primary-menu-color);
                 .menu-icon, .text {
-                    color: #a4fbe3;
+                    color: var(--secondary-menu-color);
                 }
             }
 
             &.router-link-exact-active {
-                border-right: 5px solid #a4fbe3;
+                border-right: 5px solid var(--secondary-menu-color);
             }
         }
     }

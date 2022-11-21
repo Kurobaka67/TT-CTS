@@ -3,7 +3,7 @@
         <MenuBar @changeTheme="changeTheme"/>
         
         <div :class="theme" class="main">
-            <router-view :theme="theme"/>
+            <router-view :theme="theme=='main-light'?'light':'dark'"/>
         </div>
 	</div>
 </template>

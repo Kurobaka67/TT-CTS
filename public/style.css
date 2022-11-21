@@ -3,6 +3,10 @@
     --text-color:#ededed;
     --primary-color:#404258;
     --secondary-color:#474E68;
+    --background-menu-color:#404258;
+    --text-menu-color:#ededed;
+    --primary-menu-color:#22313f;
+    --secondary-menu-color:#a4fbe3;
 }
 
 .main-dark {
@@ -34,10 +38,6 @@
 .main {
     background-color: var(--background-color);
     color: var(--text-color)
-}
-
-aside {
-    background-color: var(--primary-color);
 }
 
 .title {

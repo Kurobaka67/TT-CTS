@@ -23,6 +23,10 @@
                 <i class='menu-icon bx bx-group' ></i>
                 <span class="text">Joueurs</span>
             </router-link>
+            <router-link class="button" to="/setting">
+                <i class='menu-icon bx bxs-cog'></i>
+                <span class="text">Paramètres</span>
+            </router-link>
             <button class="button dark-light" @click="themeChange">
                 <i class='menu-icon' :class="buttonIcon"></i>
                 <span class="text">{{textTheme}}</span>
@@ -172,6 +176,7 @@ aside {
     @media (max-width: 768px) {
         position: fixed;
         z-index: 99;
+        min-height: -webkit-fill-available;
     }
 }
 </style>

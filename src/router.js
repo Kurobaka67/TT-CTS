@@ -27,6 +27,11 @@ const routes = [
                 name: 'player',
                 component: () => import('./pages/PlayerPage.vue'),
             },
+            {
+                path: '/setting',
+                name: 'setting',
+                component: () => import('./pages/SettingPage.vue'),
+            },
         ]
     },
 ];

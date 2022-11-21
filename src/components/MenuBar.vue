@@ -176,7 +176,7 @@ aside {
     @media (max-width: 768px) {
         position: fixed;
         z-index: 99;
-        min-height: -webkit-fill-available;
+        height: 100%;
     }
 }
 </style>

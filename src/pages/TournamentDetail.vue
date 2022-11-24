@@ -1,17 +1,25 @@
 <template>
-    <div class="flex justify-content-center h-screen" :class="[theme=='main-dark'?'light-text':'dark-text']">
-        <div class="w-11 main-layout ">
-            <h1>Détail de la compétition</h1>
+    <div class="flex justify-content-center h-screen">
+        <Card class="w-11 main-layout ">
+            <template #title>
+                <h1 class="title">Détail de la compétition</h1>
+            </template>
+            
+            <template #content>
+                    <h3><i class='bx bxs-time'></i> Date et heure</h3>
+                    <p>Le {{ date }} à {{ data.extendedProps.heure }}</p>
 
-            <h3><i class='bx bxs-time'></i> Date et heure</h3>
-            <p>Le {{ date }} à {{ data.extendedProps.heure }}</p>
+                    <h3><i class='bx bx-map' ></i> Lieu</h3>
+                    <p v-if="data.extendedProps.lieu == '11 route d\'Oberhausbergen'">A domicile</p>
+                    <p v-else>En extérieur : <button @click="showMap">{{ data.extendedProps.lieu }}</button></p>
+                    <iframe v-show="isMapShow" id="miFrame" :src="mapUrl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                
+            </template>
 
-            <h3><i class='bx bx-map' ></i> Lieu</h3>
-            <p v-if="data.extendedProps.lieu == '11 route d\'Oberhausbergen'">A domicile</p>
-            <p v-else>En extérieur : <button @click="showMap">{{ data.extendedProps.lieu }}</button></p>
-            <iframe v-show="isMapShow" id="miFrame" :src="mapUrl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <Button icon="pi pi-chevron-left" class="p-button-rounded button-dark" :class="[theme=='main-dark'?'button-light':'button-dark']" @click="goToList"/>
-        </div>
+            <template #footer>
+                <Button icon="pi pi-chevron-left" class="p-button-rounded button-back" @click="goToList"/>
+            </template>
+        </Card>
     </div>
 </template>
 
@@ -20,7 +28,6 @@ import dayjs from 'dayjs';
 
 
 export default {
-    props: ['theme'],
     data() {
         return {
             data: null,

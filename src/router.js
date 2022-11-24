@@ -18,14 +18,20 @@ const routes = [
                 component: () => import('./pages/TournamentsList.vue'),
             },
             {
-                path: '/detail',
-                name: 'detail',
+                path: '/list-detail',
+                name: 'list-detail',
                 component: () => import('./pages/TournamentDetail.vue'),
             },
             {
                 path: '/player',
                 name: 'player',
                 component: () => import('./pages/PlayerPage.vue'),
+            },
+            {
+                path: '/player-detail/:id',
+                name: 'player-detail',
+                component: () => import('./pages/PlayerDetailPage.vue'),
+                props: true
             },
             {
                 path: '/setting',

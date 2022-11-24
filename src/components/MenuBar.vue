@@ -90,7 +90,7 @@ aside {
     transition: 0.2s ease-out;
 
     .dark-light {
-        margin-top: 2rem;
+        margin-top: 40vh;
         background-color: transparent;
         border: none;
         width: 100%;
@@ -98,11 +98,12 @@ aside {
 
     .logo {
         margin-bottom: 1rem;
-        background-color: white;
-        border-radius: 50%;
-
+        
         img {
             width: 2rem;
+            background-color: var(--background-menu-color);
+            filter: brightness(300%);
+            border-radius: 50%;
         }
     }
 
@@ -121,7 +122,7 @@ aside {
             
             .menu-icon {
                 font-size: 2rem;
-                color: white;   
+                color: var(--text-menu-color);   
                 transition: 0.2s ease-out;
             }
 
@@ -152,12 +153,12 @@ aside {
 
             .menu-icon {
                 font-size: 2rem;
-                color: white;
+                color: var(--text-menu-color);  
                 transition: 0.2s ease-out;
             }
 
             .text {
-                color: white;
+                color: var(--text-menu-color);  ;
                 transition: 0.2s ease-out;
             }
 

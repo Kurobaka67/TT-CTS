@@ -1,21 +1,46 @@
+import axios from "axios";
+
 export default class PlayersService {
-    static _players = null;
-
-    _getAllPlayers() {
-        if(PlayersService._players == null) {
-			return fetch('data/players.json').then(res => res.json()).then(d => {
-				PlayersService._players = d;
-				return [...PlayersService._players];
-			});
-		} else {
-			return new Promise((resolve) => {
-				resolve([...PlayersService._players]);
-			});
-		}
-    }
-
     getPlayers() {
-		return this._getAllPlayers();
+		return axios({
+            method: 'get',
+            url: 'http://localhost:8081/players',
+        })
+        .then(response => {
+			return response.data;
+		})
+        .catch(err => {
+			console.error(err);
+		});
 	}
 
+	getplayerById(id){
+		return axios({
+            method: 'get',
+            url: 'http://localhost:8081/players',
+        })
+        .then(response => {
+			const r = response.data.filter(p => p.id == id);
+			let p = r[0];
+			return p;
+		})
+        .catch(err => {
+			console.error(err);
+		});
+	}
+
+	searchPlayers(text) {
+		return axios({
+            method: 'get',
+            url: 'http://localhost:8081/players',
+        })
+        .then(response => {
+			const pattern = new RegExp(".*" + text + ".*", "i");
+			const r = response.data.filter(p => pattern.test(p.nom));
+			return r;
+		})
+        .catch(err => {
+			console.error(err);
+		});
+	}
 }

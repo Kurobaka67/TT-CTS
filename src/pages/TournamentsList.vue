@@ -1,6 +1,6 @@
 <template>
     <TopBar @ligueSelecte="ligueSelecte"/>
-    <div class="flex justify-content-center h-screen" >
+    <div class="flex justify-content-center " >
         <div class="w-full lg:w-11">
             <FullCalendar :options="calendarOptions"/>
         </div>
@@ -10,6 +10,7 @@
 <script>
 import FullCalendar from '@fullcalendar/vue3';
 import listPlugin from '@fullcalendar/list';
+import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import TournamentsService from '../services/TournamentsService';
 import TopBar from '../components/TopBar.vue';
@@ -23,21 +24,33 @@ export default {
     data() {
         return {
             calendarOptions: {
-                plugins: [ interactionPlugin, listPlugin ],
-                initialView: 'listMonth',
+                plugins: [ interactionPlugin, listPlugin, dayGridPlugin  ],
+                initialView: localStorage.getItem('calendarView'),
                 eventClick: this.handleEventClick,
                 locale: 'fr',
-                buttonText: {today: 'Aujourd\'hui'},
-                dayHeaderClassNames  : 'darkest-color'
+                buttonText: {
+                    today: 'Aujourd\'hui',
+                    month: 'Mois',
+                    week: 'Semaines',
+                    list: 'Liste'
+                },
+                headerToolbar: {
+                    start: 'title',
+                    center: '',
+                    end: 'today prev,next dayGridMonth,dayGridWeek listMonth'
+                },
             },
             data: null,
-            ligueSelected: null
+            ligueSelected: null,
         }
     },
     service: null,
     created() {
         this.service = new TournamentsService();
         this.loadTournaments();
+        if(!localStorage.getItem('calendarView')){
+            localStorage.setItem('calendarView', 'listMonth');
+        }
     },
     watch: {
         ligueSelected(val, oldVal) {
@@ -49,7 +62,7 @@ export default {
     methods: {
         handleEventClick: function(arg) {
             sessionStorage.setItem('event', JSON.stringify(arg.event));
-            this.$router.push('/detail');
+            this.$router.push('/list-detail');
         },
         ligueSelecte(ligue) {
             this.ligueSelected = ligue;

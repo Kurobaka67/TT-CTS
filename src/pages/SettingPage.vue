@@ -16,19 +16,27 @@
             <div class="flex flex-row justify-content-between grid">
                 <div class="flex flex-row align-items-center md:col-3 col-12">
                     <h6 class="col-10">Couleur de fond : </h6>
-                    <ColorPicker class="col-2 pl-0" v-model="background" style="padding-bottom: 20px;" @change="setBackground"/>
+                    <MyColorPicker class="col-2 pl-0" v-model="background" style="padding-bottom: 20px;" @change="setBackground"/>
                 </div>
                 <div class="flex flex-row align-items-center md:col-3 col-12">
                     <h6 class="col-10">Couleur du texte : </h6>
-                    <ColorPicker class="col-2 pl-0" v-model="text" style="padding-bottom: 20px;" @change="setText"/>
+                    <MyColorPicker class="col-2 pl-0" v-model="text" style="padding-bottom: 20px;" @change="setText"/>
                 </div>
                 <div class="flex flex-row align-items-center md:col-3 col-12">
                     <h6 class="col-10">Couleur principal : </h6>
-                    <ColorPicker class="col-2 pl-0" v-model="primary" style="padding-bottom: 20px;" @change="setPrimary"/>
+                    <MyColorPicker class="col-2 pl-0" v-model="primary" style="padding-bottom: 20px;" @change="setPrimary"/>
                 </div>
                 <div class="flex flex-row align-items-center md:col-3 col-12">
                     <h6 class="col-10">Couleur secondaire : </h6>
-                    <ColorPicker class="col-2 pl-0" v-model="secondary" style="padding-bottom: 20px;" @change="setSecondary"/>
+                    <MyColorPicker class="col-2 pl-0" v-model="secondary" style="padding-bottom: 20px;" @change="setSecondary"/>
+                </div>
+            </div>
+            <div class="flex flex-row justify-content-between grid">
+                <div class="flex flex-row align-items-center md:col-3 col-12" style="padding-left: 50px;">
+                    <PanelColor :panel="panel1" @changeColors="changeColors" style="padding-bottom: 20px;"/>
+                </div>
+                <div class="flex flex-row align-items-center md:col-3 col-12" style="padding-left: 50px;">
+                    <PanelColor :panel="panel3" @changeColors="changeColors" style="padding-bottom: 20px;"/>
                 </div>
             </div>
             <Divider align="left">
@@ -39,28 +47,41 @@
             <div class="flex flex-row justify-content-between grid">
                 <div class="flex flex-row align-items-center md:col-3 col-12">
                     <h6 class="col-10">Couleur de fond : </h6>
-                    <ColorPicker class="col-2 pl-0" v-model="backgroundM" style="padding-bottom: 20px;" @change="setBackgroundMenu"/>
+                    <MyColorPicker class="col-2 pl-0" v-model="backgroundM" style="padding-bottom: 20px;" @change="setBackgroundMenu"/>
                 </div>
                 <div class="flex flex-row align-items-center md:col-3 col-12">
                     <h6 class="col-10">Couleur du texte : </h6>
-                    <ColorPicker class="col-2 pl-0" v-model="textM" style="padding-bottom: 20px;" @change="setTextMenu"/>
+                    <MyColorPicker class="col-2 pl-0" v-model="textM" style="padding-bottom: 20px;" @change="setTextMenu"/>
                 </div>
                 <div class="flex flex-row align-items-center md:col-3 col-12">
                     <h6 class="col-10">Couleur principal : </h6>
-                    <ColorPicker class="col-2 pl-0" v-model="primaryM" style="padding-bottom: 20px;" @change="setPrimaryMenu"/>
+                    <MyColorPicker class="col-2 pl-0" v-model="primaryM" style="padding-bottom: 20px;" @change="setPrimaryMenu"/>
                 </div>
                 <div class="flex flex-row align-items-center md:col-3 col-12">
                     <h6 class="col-10">Couleur secondaire : </h6>
-                    <ColorPicker class="col-2 pl-0" v-model="secondaryM" style="padding-bottom: 20px;" @change="setSecondaryMenu"/>
+                    <MyColorPicker class="col-2 pl-0" v-model="secondaryM" style="padding-bottom: 20px;" @change="setSecondaryMenu"/>
+                </div>
+            </div>
+            <div class="flex flex-row justify-content-between grid">
+                <div class="flex flex-row align-items-center md:col-3 col-12" style="padding-left: 50px;">
+                    <PanelColor :panel="panel2" @changeColors="changeColorsMenu" style="padding-bottom: 20px;"/>
                 </div>
             </div>
         </template>
     </Card>
 </template>
 
+
 <script>
+import MyColorPicker from '../components/MyColorPicker';
+import PanelColor from '../components/PanelColor';
+
 export default {
     props:['theme'],
+    components: {
+        MyColorPicker,
+        PanelColor
+    },
     data() {
         return {
             background: null,
@@ -71,6 +92,9 @@ export default {
             textM: null,
             primaryM: null,
             secondaryM: null,
+            panel1: ['#111', '#ededed', '#404258', '#474E68'],
+            panel2: ['#404258', '#ededed', '#22313f', '#a4fbe3'],
+            panel3: ['#041C32', '#ededed', '#04293A', '#064663']
         }
     },
     mounted() {
@@ -93,6 +117,20 @@ export default {
             this.textM = getComputedStyle(document.querySelector('.menu-'+this.theme)).getPropertyValue('--text-menu-color').substring(1);
             this.primaryM = getComputedStyle(document.querySelector('.menu-'+this.theme)).getPropertyValue('--primary-menu-color').substring(1);
             this.secondaryM = getComputedStyle(document.querySelector('.menu-'+this.theme)).getPropertyValue('--secondary-menu-color').substring(1);
+        },
+        changeColors(panel) {
+            document.querySelector('.main-'+this.theme).style.setProperty('--background-color', panel[0]);
+            document.querySelector('.main-'+this.theme).style.setProperty('--text-color', panel[1]);
+            document.querySelector('.main-'+this.theme).style.setProperty('--primary-color', panel[2]);
+            document.querySelector('.main-'+this.theme).style.setProperty('--secondary-color', panel[3]);
+            this.loadColors()
+        },
+        changeColorsMenu(panel) {
+            document.querySelector('.menu-'+this.theme).style.setProperty('--background-menu-color', panel[0]);
+            document.querySelector('.menu-'+this.theme).style.setProperty('--text-menu-color', panel[1]);
+            document.querySelector('.menu-'+this.theme).style.setProperty('--primary-menu-color', panel[2]);
+            document.querySelector('.menu-'+this.theme).style.setProperty('--secondary-menu-color', panel[3]);
+            this.loadColors()
         },
         setBackground() {
             document.querySelector('.main-'+this.theme).style.setProperty('--background-color', '#'+this.background);

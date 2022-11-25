@@ -1,5 +1,5 @@
 <template>
-    <aside :class="[isExpanded?'is-expanded':'' || textTheme=='Clair'?'menu-light':'menu-dark']">
+    <aside :class="{'is-expanded': isExpanded, 'menu-light': theme=='main-light', 'menu-dark': theme=='main-dark'}">
         <div class="logo">
             <img src="../../public/images/logocscts.png" alt="logocscts">
         </div>
@@ -28,8 +28,8 @@
                 <span class="text">Paramètres</span>
             </router-link>
             <button class="button dark-light" @click="themeChange">
-                <i class='menu-icon' :class="buttonIcon"></i>
-                <span class="text">{{textTheme}}</span>
+                <i class='menu-icon' :class="theme=='main-light'?'pi pi-sun':'pi pi-moon'"></i>
+                <span class="text">{{theme=='main-light'?'Clair':'Sombre'}}</span>
             </button>
         </div>
     </aside>
@@ -40,12 +40,12 @@
 import { ref } from 'vue';
 
 export default {
+    props:['theme'],
     emits: ["changeTheme"],
     data() {
         return {
             isExpanded: ref(false),
             buttonIcon: 'pi pi-sun',
-            textTheme: 'Clair',
         }
     },
     methods: {
@@ -53,8 +53,6 @@ export default {
             this.isExpanded = !this.isExpanded;
         },
         themeChange() {
-            this.buttonIcon=='pi pi-moon'?this.buttonIcon='pi pi-sun':this.buttonIcon='pi pi-moon';
-            this.textTheme=='Sombre'?this.textTheme='Clair':this.textTheme='Sombre';
             this.$emit('changeTheme');
         }
     }
@@ -70,7 +68,7 @@ export default {
 }
 
 .menu-light {
-    --background-menu-color:#404258;
+    --background-menu-color:#747793;
     --text-menu-color:#ededed;
     --primary-menu-color:#22313f;
     --secondary-menu-color:#a4fbe3;

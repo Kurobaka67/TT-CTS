@@ -1,5 +1,5 @@
 <template>
-    <div class="flex justify-content-center h-screen">
+    <div class="flex justify-content-center min-h-screen">
         <Card class="w-full lg:w-11 main-layout">
             <template #content>
                 <DataView :value="players" :layout="layout" :paginator="true" :rows="9" :sortOrder="sortOrder" :sortField="sortField">

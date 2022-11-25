@@ -104,5 +104,5 @@
 
 .player {
     background-color: var(--secondary-color) !important;
-    color: var(--text-color);
+    color: var(--text-color) !important;
 }

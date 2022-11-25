@@ -23,7 +23,7 @@
             </template>
 
             <template #footer>
-                <Button icon="pi pi-chevron-left" class="p-button-rounded button-dark" @click="goToPlayer"/>
+                <Button icon="pi pi-chevron-left" class="p-button-rounded button-back" @click="goToPlayer"/>
             </template>
         </Card>
         <Card class="w-11 main-layout" v-else>

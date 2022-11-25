@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "date": "2022-10-26",
+        "heure": "20h",
+        "ligue": "AGR",
+        "division": 1,
+        "poule": "A",
+        "equipe": "STBG ST JEAN 2",
+        "lieu": "15 Rue Louvois"
+        
+    },
+    {
+        "id": 2,
+        "date": "2022-11-11",
+        "heure": "20h",
+        "ligue": "AGR",
+        "division": 1,
+        "poule": "A",
+        "equipe": "OSTWALD ST OSTWALD 4",
+        "lieu": "11 route d'Oberhausbergen"
+    },
+    {
+        "id": 3,
+        "date": "2022-10-14",
+        "heure": "20h",
+        "ligue": "AGR",
+        "division": 1,
+        "poule": "A",
+        "equipe": "OSTWALD ST OSTWALD 4",
+        "lieu": "17 All. René Cassin"
+    }
+]

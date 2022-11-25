@@ -1,0 +1,108 @@
+:root {
+    --background-color:#111;
+    --text-color:#ededed;
+    --primary-color:#404258;
+    --secondary-color:#474E68;
+    --background-menu-color:#404258;
+    --text-menu-color:#ededed;
+    --primary-menu-color:#22313f;
+    --secondary-menu-color:#a4fbe3;
+}
+
+.main-dark {
+    --background-color:#111;
+    --text-color:#ededed;
+    --primary-color:#404258;
+    --secondary-color:#474E68;
+}
+
+.main-light {
+    --background-color:#ededed;
+    --text-color:#111;
+    --primary-color:#7FBCD2;
+    --secondary-color:#A5F1E9;
+}
+
+.main-layout {
+    margin-top: 2em;
+    margin-bottom: 2em;
+    text-align: center;
+    color: var(--text-color);
+    background-color: var(--primary-color);
+}
+
+.imageCard {
+    height: 18rem;
+}
+
+.main {
+    background-color: var(--background-color);
+    color: var(--text-color)
+}
+
+.button-back {
+    background-color: var(--secondary-color);
+    color: var(--text-color)
+}
+
+.title {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.top-bar{
+    margin-left: -2rem;
+    margin-top: -2rem;
+    background-color: var(--secondary-color);
+}
+
+.card-content{
+    padding-left: 30px;
+}
+
+.p-divider .p-divider-content {
+    background-color: var(--primary-color);
+}
+
+.fc {
+    margin-top: 1rem;
+}
+
+.fc.fc-theme-standard .fc-view-harness .fc-view {
+    background-color: var(--primary-color);
+}
+
+.fc .fc-list-event:hover td {
+    background-color: var(--secondary-color) !important;
+}
+
+.fc.fc-theme-standard .fc-view-harness td {
+    color: var(--text-color);
+}
+
+.fc.fc-theme-standard .fc-toolbar .fc-button {
+    background-color: var(--secondary-color) !important;
+    color: var(--text-color) !important;
+    border-color: 2px var(--text-color) !important;
+}
+
+.p-dataview .p-dataview-header {
+    background-color: var(--primary-color) !important;
+    color: var(--text-color) !important;
+    border: transparent;
+}
+
+.p-dataview .p-dataview-content {
+    background-color: var(--primary-color) !important;
+    color: var(--text-color) !important;
+}
+
+.p-paginator {
+    background-color: var(--primary-color) !important;
+    color: var(--text-color) !important;
+}
+
+.player {
+    background-color: var(--secondary-color) !important;
+    color: var(--text-color) !important;
+}
